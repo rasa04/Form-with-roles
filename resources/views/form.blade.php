@@ -19,8 +19,9 @@
             <textarea name="message" id="message" placeholder="message"></textarea>
             <input type="file" name="file" id="file">
             <button type="submit">SEND</button>
-
-            {{ $errors }}
+            @foreach ($errors->all() as $message)
+                {{ $message }}
+            @endforeach
         </form>
     </div>
 @endsection
