@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +15,7 @@ use App\Http\Controllers\FormController;
 */
 
 Route::get('/', [FormController::class, 'form'])->name('form');
-Route::get('/manager')->name('manager');
+Route::post('/store', [FormController::class, 'store'])->name('form.create');
+// Route::get('/manager', [])->name('manager');
+
+Auth::routes();
