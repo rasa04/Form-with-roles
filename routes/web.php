@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\ManagerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FormController::class, 'form'])->name('form');
 Route::post('/store', [FormController::class, 'store'])->name('form.create');
-// Route::get('/manager', [])->name('manager');
+
+Route::resource('/manager', ManagerController::class);
 
 Auth::routes();
