@@ -24,7 +24,7 @@ class ManagerController extends Controller
     public function index()
     {
         if (Gate::allows('manager-page')) {
-            $applications = Application::orderBy('created_at')->get();
+            $applications = Application::orderBy('created_at', 'desc')->get();
             return view('manager', compact('applications'));
         }else{
             abort(403);
