@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FormController::class, 'form'])->name('form');
 Route::post('/store', [FormController::class, 'store'])->name('form.create');
 
-Route::resource('/manager', ManagerController::class);
+Route::resource('manager', ManagerController::class);
 
 Auth::routes();

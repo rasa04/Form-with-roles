@@ -28,6 +28,7 @@ class StoreRequest extends FormRequest
             'message' => 'required',
             'user_id' => 'required',
             'status' => 'required',
+            'file' => 'mimes:jpg,png,jpeg,pdf',
         ];
     }
 }
