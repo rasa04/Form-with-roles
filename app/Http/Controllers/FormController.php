@@ -23,7 +23,9 @@ class FormController extends Controller
     }
     public function store(StoreRequest $request){
         $data = $request->validated();
+        $data['file'] = $request->file = $request->file('file')->store('files', 'public');
         Application::create($data);
+        
         return "Отправлено!";
     }
 }

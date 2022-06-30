@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Application;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,8 @@ class ManagerController extends Controller
     public function index()
     {
         if (Gate::allows('manager-page')) {
-            return view('manager');
+            $applications = Application::orderBy('created_at')->get();
+            return view('manager', compact('applications'));
         }else{
             abort(403);
         }
@@ -81,7 +83,9 @@ class ManagerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $app = Application::where('id', $id)->first();
+        $app->status == 0 ? $app->update(['status' => 1]) : $app->update(['status' => 0]);
+        return redirect()->route('manager.index');
     }
 
     /**

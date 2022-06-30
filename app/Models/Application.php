@@ -9,7 +9,7 @@ use App\Models\User;
 class Application extends Model
 {
     use HasFactory;
-    protected $guarded = false;
+    protected $guarded = [];
 
     public function user()
     {
