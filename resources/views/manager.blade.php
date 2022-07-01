@@ -27,8 +27,10 @@
                 <input type="submit"
                     @if ($application->status == 0)
                         value="Не отвечено"
+                        style="background: red"
                     @else
                         value="Отвечено"
+                        style="background: green"
                     @endif
                 >
             </form>
